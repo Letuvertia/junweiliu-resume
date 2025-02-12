@@ -1,5 +1,4 @@
 # Jun-Wei (Jun) Liu's Resume
+![Resume Preview](./junweiliu-resume-1.png)
 
-The template is attributed to [sb2nov](https://github.com/sb2nov/resume).
-
-## Preview
+Template credits: [sb2nov](https://github.com/sb2nov/resume).
