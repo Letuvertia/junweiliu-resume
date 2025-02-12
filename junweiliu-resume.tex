@@ -13,7 +13,7 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks,allcolors=blue]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
@@ -48,10 +48,8 @@
 
 %-------------------------
 % Custom commands
-\newcommand{\resumeItem}[2]{
-  \item\small{
-    \textbf{#1}{: #2 \vspace{-2pt}}
-  }
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
 }
 
 % Just in case someone needs a heading that does not need to be in a list
@@ -67,6 +65,15 @@
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheadingtwo}[6]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+      \textit{\small#5} & \textit{\small #6} \\
     \end{tabular*}\vspace{-5pt}
 }
 
@@ -93,118 +100,99 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{https://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email: \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-  \href{https://sourabhbajaj.com/}{sourabhbajaj.com} & Mobile: \href{tel:+11234567890}{+1-123-456-7890} \\
+  \textbf{\Large Jun-Wei Liu} & Email: 1026oscar1@gmail.com\\
+  \href{https://www.linkedin.com/in/junw-liu/}{linkedin/junw-liu} & Mobile: +886 933974081 \\
 \end{tabular*}
 
 
 %-----------EDUCATION-----------------
 \section{Education}
   \resumeSubHeadingListStart
-    \resumeSubheading
-      {Georgia Institute of Technology}{Atlanta, GA}
-      {Master of Science in Computer Science; GPA: 4.00}{Aug 2012 -- Dec 2013}
-    \resumeSubheading
-      {Birla Institute of Technology and Science}{Pilani, India}
-      {Bachelor of Engineering in Electrical and Electronics; GPA: 3.66 (9.15/10.0)}{Aug 2008 -- July 2012}
+  
+    \resumeSubheadingtwo
+      {National Taiwan University (NTU)}{Taipei, Taiwan}
+      {Bachelor's degree in Computer Science and Information Engineering}{Sept. 2020 -- Jun. 2025}
+      {Bachelor's degree in Sociology}{Sept. 2021 -- Jun. 2025}
+      \resumeItemListStart
+        \resumeItem{}{Recipient of the 2020 National Taiwan University Fu Bell Entrance Scholarships (70 out of 3758 students).}
+        \resumeItem{}{Completed one-year exchange program at KTH Royal Institute of Technology in Sweden from 2022 to 2023.}
+      \resumeItemListEnd
+      
   \resumeSubHeadingListEnd
 
 
 %-----------EXPERIENCE-----------------
-\section{Experience}
+\section{Experience in Computer Science}
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Google}{Mountain View, CA}
-      {Software Engineer}{Oct 2016 -- Present}
+      {Thingnario}{Taipei, Taiwan}
+      {Site Reliability Engineering Intern}{Jun. 2023 -- Aug. 2023}
       \resumeItemListStart
-        \resumeItem{TensorFlow}
-          {TensorFlow is an open source software library for numerical computation using data flow graphs; primarily used for training deep learning models. Worked on APIs and performance for training models on Tensor Processing Units (TPU).}
-        \resumeItem{Apache Beam}
-          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines, as well as a set of language-specific SDKs for constructing pipelines and runners.}
+        \resumeItem{}{Enhanced operational efficiency by integrating testing scripts across diverse servers through the centralized scheduler/runner Cronicle, consolidating error messages into a single database for streamlined management and impactful troubleshooting.}
       \resumeItemListEnd
+
+    \resumeSubheading
+      {Research Institutes of Sweden (RISE)}{Stockholm, Sweden}
+      {Research Intern, supervised by Dr. Paris Carbone}{Apr. 2023 -- Jul. 2023}
+      \resumeItemListStart
+        \resumeItem{}{Improved the efficiency of the Java-based project Crayfish by refactoring and dockerizing its structure to optimize the throughput assessment of machine learning models across diverse streaming frameworks, leading to its acceptance to EDBT/ICDT 2024.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Mobagel}{Taipei, Sweden}
+      {Software Engineer Intern}{Jun. 2022 -- Aug. 2022}
+      \resumeItemListStart
+        \resumeItem{}{Engineered error codes for Decanter AI's AutoML system, optimizing the handling of data processing, model training, and prediction requests, resulting in enhanced error message feedback at the web frontend.}
+        \resumeItem{}{Streamlined the "sanitizing" module responsible for managing special characters in file headers during user dataset uploads, contributing to improved data quality and user experience.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Sensay}{United States}
+      {Machine Learning Intern}{Jul. 2021 -- Aug. 2021}
+      \resumeItemListStart
+        \resumeItem{}{Enhanced automated speech assessment on Sensay's English learning platformby leveraging machine learning techniques from early ETS research (2008-2014), resulting in an improved scoring system based on the company's dataset.}
+        \resumeItem{}{Innovated language learning tools by developing an interactive audio visualization feedback system, incorporating insights from academic papers on acoustic feature visualization for pronunciation training, fostering an engaging platform for students to enhance their speaking skills}
+      \resumeItemListEnd
+    
+      \resumeSubheading
+        {Innoveon}{Taipei, Taiwan}
+        {Deep Learning Intern}{Jul. 2020 -- Sept. 2020}
+        \resumeItemListStart
+          \resumeItem{}{Contributed to the development of an image alignment algorithm for defect detection in racket production, integrating techniques from 4 influential papers centered around convolutional neural networks (CNN).}
+          \resumeItem{}{Executed experiments on data augmentation with the company's dataset, implementing feature disentanglement methodologies from 3 relevant papers based on variational autoencoders (VAE).}
+        \resumeItemListEnd
       
-% --------Multiple Positions Heading------------
-  %  \resumeSubSubheading
-  %   {Software Engineer I}{Oct 2014 -- Sep 2016}
-  %   \resumeItemListStart
-  %      \resumeItem{Apache Beam}
-  %        {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-  %   \resumeItemListEnd
-
-%-------------------------------------------
-
-    \resumeSubheading
-      {Coursera}{Mountain View, CA}
-      {Senior Software Engineer}{Jan 2014 -- Oct 2016}
-      \resumeItemListStart
-        \resumeItem{Notifications}
-          {Service for sending email, push and in-app notifications. Involved in features such as delivery time optimization, tracking, queuing and A/B testing. Built an internal app to run batch campaigns for marketing etc.}
-        \resumeItem{Nostos}
-          {Bulk data processing and injection service from Hadoop to Cassandra and provides a thin REST layer on top for serving offline computed data online.}
-        \resumeItem{Workflows}
-          {Dataduct an open source workflow framework to create and manage data pipelines leveraging reusables patterns to expedite developer productivity.}
-        \resumeItem{Data Collection}
-          {Designed the internal survey and crowdsourcing platform which allowed for creating various tasks for crowdsourcing or embedding surveys across the Coursera platform.}
-        \resumeItem{Dev Environment}
-          {Analytics environment based on Docker and AWS, standardized the Python and R dependencies. Wrote the core libraries that are shared by all data scientists.}
-        \resumeItem{Data Warehousing}
-          {Setup, schema design and management of Amazon Redshift. Built an internal app for access to the data using a web interface. Dataduct integration for daily ETL injection into Redshift.}
-        \resumeItem{Recommendations}
-          {Core service for all recommendation systems at Coursera, currently used on the homepage and throughout the content discovery process. Worked on both offline training and online serving.}
-        \resumeItem{Content Discovery}
-          {Improved content discovery by building a new onboarding experience on coursera. Used this to personalize the search and browse experience. Also worked on ranking and indexing improvements.}
-        \resumeItem{Course Dashboards}
-          {Instructor dashboards and learner surveying tools, which helped instructors run their class better by providing data on Assignments and Learner Activity.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Lucena Research}{Atlanta, GA}
-      {Data Scientist}{Summer 2012 and 2013}
-      \resumeItemListStart
-        \resumeItem{Portfolio Management}
-          {Created models for portfolio hedging, portfolio optimization and price forecasting. Also created a strategy backtesting engine used for simulating and backtesting strategies.}
-        \resumeItem{QuantDesk}
-          {Python backend for a web application used by hedge fund managers for portfolio management.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Georgia Institute of Technology}{Atlanta, GA}
-      {Research and Teaching Assistant}{Jan 2012 -- Dec 2013}
-      \resumeItemListStart
-        \resumeItem{Research Assistant -- Machine Learning}
-          {Research on machine learning for portfolio hedging and replication algorithms. Modeling low-risk \& continuous-return strategies. Developed the Python library QSTK.}
-        \resumeItem{Teaching Assistant -- Computational Investing}
-          {The online course on Coursera, had more than 100,000 students enrolled. It was featured on the 11 Alive News and the Atlanta Journal Constitution. Involved in creating assignment, exams and conducting recitation sessions. Also taught the on-campus version of the course.}
-      \resumeItemListEnd
-
+        \resumeSubheading
+          {Institute of Information Science, Academia Sinica}{Taipei, Taiwan}
+          {High School Research Project, supervised by Dr. Li Su} {Aug. 2018 -- Jul. 2020}
+          \resumeItemListStart
+            \resumeItem{}{Published a first-authored paper "Body Movement Generation for Expressive Violin Performance Applying Neural Networks" in ICASSP 2020. [\href{https://ieeexplore.ieee.org/document/9054463}{IEEExplore}]}
+            \resumeItem{}{Developed a neural-network-based framework for generating expressive violin performance body skeletons}
+            \resumeItem{}{Executed comprehensive subjective and objective evaluations, assessing the likeness and naturalness of the generated skeleton.}
+          \resumeItemListEnd
+          
   \resumeSubHeadingListEnd
 
 
-%-----------PROJECTS-----------------
-\section{Projects}
-  \resumeSubHeadingListStart
-    \resumeSubItem{QuantSoftware Toolkit}
-      {Open source Python library for financial data analysis and machine learning for finance.}
-    \resumeSubItem{GitHub Visualization}
-      {Data visualization of Git log data using D3 to analyze project trends over time.}
-    \resumeSubItem{Recommendation System}
-      {Music and movie recommender systems using collaborative filtering on public datasets.}
-    \resumeSubItem{Mac Setup}
-      {Book that gives step-by-step instructions on setting up developer environment on macOS.}
-  \resumeSubHeadingListEnd
-
-%
-%--------SKILLS------------
-%\section{Skills}
-%  \resumeSubHeadingListStart
-%    \item{
-%      \textbf{Languages}{: Scala, Python, JavaScript, C++, SQL, Java}
-%      \hfill
-%      \textbf{Technologies}{: AWS, Play, React, Kafka, GCE}
-%    }
-%  \resumeSubHeadingListEnd
-
+% \section{Experience in Sociology}
+%   \resumeSubHeadingListStart
+  
+%     \resumeSubheading
+%       {Institute of European and American Studies, Academia Sinica}{Taipei, Taiwan}
+%       {Research Assistant, supervised by Dr. Min-Hsiung, Huang}{Apr. 2024 – Jul. 2024}
+%       \resumeItemListStart
+%         \resumeItem{}{Analysed cross-national longitudinal datasets, such as Programme for International Student Assessment (PISA) and the Taiwan Educational Panel Survey (TEPS), to investigate educational inequality in Taiwan.}
+%       \resumeItemListEnd
+    
+%     \resumeSubheading
+%       {Institute of Sociology, Academia Sinica}{Taipei, Taiwan}
+%       {Research Assistant, supervised by Dr. Hsuan-Wei Lee}{Sept. 2021 –-Feb. 2023}
+%       \resumeItemListStart
+%         \resumeItem{}{Implemented Python-based replication of 21 agent-based modeling papers from AJS and ASR, ensuring rigorous reproducibility standards and enhancing the reliability of sociological research methodologies.}
+%       \resumeItemListEnd
+    
+%   \resumeSubHeadingListEnd
 
 %-------------------------------------------
 \end{document}
