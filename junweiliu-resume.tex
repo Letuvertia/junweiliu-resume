@@ -112,110 +112,136 @@
 %-----------EDUCATION-----------------
 \section{Education}
   \resumeSubHeadingListStart
-  
+
     \resumeSubheadingtwo
       {National Taiwan University (NTU)}{Taipei, Taiwan}
       {Bachelor's degree in Computer Science and Information Engineering}{Sept. 2020 -- Jun. 2025}
       {Bachelor's degree in Sociology}{Sept. 2021 -- Jun. 2025}
       \resumeItemListStart
-        \resumeItem{}{Recipient of the 2020 National Taiwan University Fu Bell Entrance Scholarships (70 out of 3758 students).}
-        \resumeItem{}{Completed one-year exchange program at KTH Royal Institute of Technology in Sweden from 2022 to 2023.}
+        \resumeItem{}{Recipient of the 2020 National Taiwan University %
+        Fu Bell Entrance Scholarships (70 out of 3758 students).}
+        \resumeItem{}{Completed one-year exchange program at %
+        KTH Royal Institute of Technology in Sweden from 2022 to 2023.}
       \resumeItemListEnd
-      
+
+  \resumeSubHeadingListEnd
+
+
+%-----------SKILLS-----------------
+\section{Skills}
+  \resumeSubHeadingListStart
+    \resumeItem{\textbf{Languages:} C/$\CC$, Python, Go, Java, Bash}
+    \resumeItem{\textbf{Cloud \& Infrastructure:} AWS, GCP, %
+    Kubernetes, Terraform, Helm}
+    \resumeItem{\textbf{Tools \& Technologies:} Git, Linux, Docker, %
+    CI/CD (GitHub Actions, GitLab)}
   \resumeSubHeadingListEnd
 
 
 %-----------EXPERIENCE-----------------
-\section{Experience in Computer Science}
+\section{Experience}
   \resumeSubHeadingListStart
 
     \resumeSubheading
       {Trend Micro}{Taipei, Taiwan}
       {Cloud Engineer}{Jun. 2025 -- Now}
       \resumeItemListStart
-        \resumeItem{}{Own TrendMicro Anti-Spam Engine (TMASE), a C++-based email threat detection engine integrated across multiple products, implementing detection features for emerging email security threats and managing monthly releases with comprehensive testing and quality controls.}
-        \resumeItem{}{Manage AWS infrastructure processing 10M+ daily email queries using Terraform for IaC and EKS with Helm for microservices orchestration. Contributed to infrastructure modernization by migrating Helm charts from monorepo to dedicated repository, provisioned new EKS cluster, and resolved production incidents to maintain high availability.}
+        \resumeItem{}{Owned Trend Micro Anti-Spam Engine (TMASE), a $\CC$ %
+        email threat detection engine used across multiple email security %
+        products; delivered new detection features, managed monthly %
+        releases, and built GitHub Actions CI/CD pipelines that automated %
+        build, unit test, and regression test workflows.}
+        \resumeItem{}{Migrated AWS infrastructure from CloudFormation to %
+        Terraform and provisioned new Amazon EKS clusters with Helm; %
+        executed production traffic migration for services handling 10M+ %
+        daily email queries and optimized Kubernetes resource allocation %
+        and Karpenter autoscaling to improve cost efficiency.}
+        \resumeItem{}{Implemented backend features for Erato, a %
+        Python/LangGraph LLM-based email threat analysis service, %
+        including tenant-aware tracing integrated with existing %
+        OpenTelemetry and Langfuse infrastructure, and built a Go service %
+        exposing TMASE scanning capabilities to the LLM evaluation %
+        pipeline.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Thingnario}{Taipei, Taiwan}
       {Site Reliability Engineering Intern}{Jun. 2023 -- Aug. 2023}
       \resumeItemListStart
-        \resumeItem{}{Integrated testing scripts across diverse GCP servers using the centralized scheduler/runner Cronicle, consolidating error messages into an Elasticsearch-powered database for streamlined log analysis and more effective troubleshooting.}
+        \resumeItem{}{Integrated testing scripts across diverse %
+        GCP servers using the centralized scheduler/runner Cronicle, %
+        consolidating error messages into an Elasticsearch-powered %
+        database for streamlined log analysis and more effective %
+        troubleshooting.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Research Institutes of Sweden (RISE)}{Stockholm, Sweden}
-      {Research Intern, supervised by Dr. Paris Carbone}{Apr. 2023 -- Jul. 2023}
+      {Research Intern, supervised by Dr. Paris Carbone}%
+      {Apr. 2023 -- Jul. 2023}
       \resumeItemListStart
-        \resumeItem{}{Dockerized and refactored the Java-based throughput assessment of machine learning models across various stream-processing frameworks (e.g., Apache Flink, Kafka Streams, and Spark Streaming) to simulate real-world performance in an industrial setting, leading to its acceptance at EDBT/ICDT 2024.}
+        \resumeItem{}{Dockerized and refactored the Java-based %
+        throughput assessment of machine learning models across %
+        various stream-processing frameworks (e.g., Apache Flink, %
+        Kafka Streams, and Spark Streaming) to simulate real-world %
+        performance in an industrial setting, leading to its %
+        acceptance at EDBT/ICDT 2024.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Mobagel}{Taipei, Taiwan}
       {Software Engineer Intern}{Jun. 2022 -- Aug. 2022}
       \resumeItemListStart
-        \resumeItem{}{Developed error codes for Decanter AI's AutoML Scala-based system, optimizing data processing, model training, and prediction request handling, which improved error message feedback on the web frontend.}
-        \resumeItem{}{Optimized the "sanitizing" module responsible for managing special characters in file headers during user dataset uploads, enhancing data quality and user experience.}
+        \resumeItem{}{Developed error codes for Decanter AI's AutoML %
+        Scala-based system, optimizing data processing, model training, %
+        and prediction request handling, which improved error message %
+        feedback on the web frontend.}
+        \resumeItem{}{Optimized the "sanitizing" module responsible for %
+        managing special characters in file headers during user dataset %
+        uploads, enhancing data quality and user experience.}
       \resumeItemListEnd
+
+
+  \resumeSubHeadingListEnd
+
+
+\section{Additional Experience}
+  \resumeSubHeadingListStart
 
     \resumeSubheading
       {Sensay}{United States (Remote)}
       {Machine Learning Intern}{Jul. 2021 -- Aug. 2021}
       \resumeItemListStart
-        \resumeItem{}{Enhanced automated speech assessment on Sensay's English learning platform by applying machine learning techniques from early ETS research (2008-2014), improving the scoring system based on the company's dataset.}
-        \resumeItem{}{Developed an interactive audio visualization feedback system for language learning, integrating insights from academic research on acoustic feature visualization for pronunciation training, fostering a more engaging and effective platform for students.}
+        \resumeItem{}{Developed automated speech assessment and %
+        audio visualization systems for English learning platform.}
       \resumeItemListEnd
-    
-      \resumeSubheading
-        {Innoveon}{Taipei, Taiwan}
-        {Deep Learning Intern}{Jul. 2020 -- Sept. 2020}
-        \resumeItemListStart
-          \resumeItem{}{Developed an image alignment algorithm for defect detection in racket production, incorporating techniques from four influential papers on convolutional neural networks (CNNs).}
-          \resumeItem{}{Conducted experiments on data augmentation using the company's dataset, applying feature disentanglement methods from three key papers on variational autoencoders (VAEs).}
-        \resumeItemListEnd
-      
-        \resumeSubheading
-          {Institute of Information Science, Academia Sinica}{Taipei, Taiwan}
-          {High School Research Project, supervised by Dr. Li Su} {Aug. 2018 -- Jul. 2020}
-          \resumeItemListStart
-            \resumeItem{}{Published a first-authored paper "Body Movement Generation for Expressive Violin Performance Applying Neural Networks" in ICASSP 2020. [\href{https://ieeexplore.ieee.org/document/9054463}{IEEExplore}]}
-            \resumeItem{}{Developed a neural network-based framework with Keras to generate expressive violin performance body skeletons.}
-            \resumeItem{}{Conducted comprehensive subjective and objective evaluations to assess the likeness and naturalness of the generated skeletons.}
-          \resumeItemListEnd
-          
-  \resumeSubHeadingListEnd
 
-
-\section{Experience in Sociology}
-  \resumeSubHeadingListStart
-  
     \resumeSubheading
-      {Institute of European and American Studies, Academia Sinica}{Taipei, Taiwan}
-      {Research Assistant, supervised by Dr. Min-Hsiung, Huang}{Apr. 2024 -- Jul. 2024}
+      {Innoveon}{Taipei, Taiwan}
+      {Deep Learning Intern}{Jul. 2020 -- Sept. 2020}
       \resumeItemListStart
-        \resumeItem{}{Analysed cross-national longitudinal datasets, such as Programme for International Student Assessment (PISA) and the Taiwan Educational Panel Survey (TEPS), to investigate educational inequality in Taiwan.}
+        \resumeItem{}{Implemented CNN-based image alignment algorithm %
+        for defect detection in manufacturing.}
       \resumeItemListEnd
-    
-    \resumeSubheading
-      {Institute of Sociology, Academia Sinica}{Taipei, Taiwan}
-      {Research Assistant, supervised by Dr. Hsuan-Wei Lee}{Sept. 2021 -- Feb. 2023}
-      \resumeItemListStart
-        \resumeItem{}{Replicated 21 agent-based modeling papers from the sociology journals AJS and ASR using Python, ensuring rigorous reproducibility standards and enhancing the reliability of sociological research methodologies.}
-      \resumeItemListEnd
-    
-  \resumeSubHeadingListEnd
 
-\section{Activities}
-  \resumeSubHeadingListStart
-  
+    \resumeSubheading
+      {Institute of Information Science, Academia Sinica}{Taipei, Taiwan}
+      {High School Research Project, supervised by Dr. Li Su}%
+      {Aug. 2018 -- Jul. 2020}
+      \resumeItemListStart
+        \resumeItem{}{Published first-authored paper in ICASSP 2020 %
+        on neural network-based violin performance generation. %
+        [\href{https://ieeexplore.ieee.org/document/9054463}{IEEExplore}]}
+      \resumeItemListEnd
+
     \resumeSubheading
       {2022 \& 2023 APCS Camp}{Taipei, Taiwan}
       {$\CC$ Lecturer}{Mar. 2022 -- Jul. 2023}
       \resumeItemListStart
-        \resumeItem{}{Designed teaching materials and delivered online lectures on fundamental concepts of functions and recursion in $\CC$ to 80 high school students, aiding their preparation for the Advanced Placement Computer Science (APCS) test in Taiwan.}
+        \resumeItem{}{Delivered online lectures on $\CC$ fundamentals %
+        to 80 high school students.}
       \resumeItemListEnd
-          
+
   \resumeSubHeadingListEnd
 
 %-------------------------------------------
