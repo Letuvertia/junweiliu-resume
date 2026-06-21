@@ -30,7 +30,6 @@
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-\titlespacing*{\section}{0pt}{6pt}{0pt}
 
 % Ensure that generate PDF is machine readable/ATS parsable
 \pdfgentounicode=1
@@ -81,13 +80,7 @@
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
-% Section header style for use inside minipage columns — zero out titlespacing
-% so the section* doesn't add before-sep inside the minipage
-\newcommand{\columnSectionHeader}[1]{%
-  \titlespacing*{\section}{0pt}{0pt}{0pt}%
-  \section*{#1}%
-  \titlespacing*{\section}{0pt}{6pt}{0pt}%
-}
+\newcommand{\columnSectionHeader}[1]{\section*{#1}}
 
 % Compact variants for Projects section
 \newcommand{\resumeProjectHeading}[4]{
@@ -132,7 +125,6 @@
 
 
 %-----------SUMMARY + SKILLS (2-column row)-----------
-\vspace{6pt}
 \begin{minipage}[t]{0.48\textwidth}
   \columnSectionHeader{Summary}
   \small{Software engineer with experience in backend development, %
@@ -151,7 +143,6 @@
     Grafana, Langfuse
   \end{itemize}
 \end{minipage}
-\vspace{0pt}
 
 
 %-----------EXPERIENCE-----------------
