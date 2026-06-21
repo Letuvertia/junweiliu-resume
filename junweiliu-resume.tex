@@ -7,30 +7,18 @@
 \documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[colorlinks,allcolors=blue]{hyperref}
-\usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[top=0.33in, bottom=0.33in, left=0.42in, right=0.42in]{geometry}
 \input{glyphtounicode}
 
-\pagestyle{fancy}
-\fancyhf{} % Clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+\pagestyle{empty}
 
 \urlstyle{same}
 
@@ -42,6 +30,7 @@
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\titlespacing*{\section}{0pt}{6pt}{0pt}
 
 % Ensure that generate PDF is machine readable/ATS parsable
 \pdfgentounicode=1
@@ -92,6 +81,25 @@
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
+% Section header style for use inside minipage columns — zero out titlespacing
+% so the section* doesn't add before-sep inside the minipage
+\newcommand{\columnSectionHeader}[1]{%
+  \titlespacing*{\section}{0pt}{0pt}{0pt}%
+  \section*{#1}%
+  \titlespacing*{\section}{0pt}{6pt}{0pt}%
+}
+
+% Compact variants for Projects section
+\newcommand{\resumeProjectHeading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-8pt}
+}
+\newcommand{\resumeProjectItemListStart}{\begin{itemize}[noitemsep,topsep=1pt,parsep=0pt]}
+\newcommand{\resumeProjectItemListEnd}{\end{itemize}\vspace{-6pt}}
+
 % c++ symbol
 \newcommand{\CC}{C\nolinebreak\hspace{-.05em}\raisebox{.4ex}{\tiny\bf +}\nolinebreak\hspace{-.10em}\raisebox{.4ex}{\tiny\bf +}}
 \def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}}
@@ -112,30 +120,38 @@
 %-----------EDUCATION-----------------
 \section{Education}
   \resumeSubHeadingListStart
-
     \resumeSubheadingtwo
       {National Taiwan University (NTU)}{Taipei, Taiwan}
-      {Bachelor's degree in Computer Science and Information Engineering}{Sept. 2020 -- Jun. 2025}
-      {Bachelor's degree in Sociology}{Sept. 2021 -- Jun. 2025}
+      {B.S. in Computer Science and Information Engineering}{Sep. 2020 -- Jun. 2025}
+      {B.A. in Sociology}{Sep. 2021 -- Jun. 2025}
       \resumeItemListStart
-        \resumeItem{}{Recipient of the 2020 National Taiwan University %
-        Fu Bell Entrance Scholarships (70 out of 3758 students).}
-        \resumeItem{}{Completed one-year exchange program at %
-        KTH Royal Institute of Technology in Sweden from 2022 to 2023.}
+        \resumeItem{}{Exchange student at KTH Royal Institute of %
+        Technology, Sweden (2022--2023).}
       \resumeItemListEnd
-
   \resumeSubHeadingListEnd
 
 
-%-----------SKILLS-----------------
-\section{Skills}
-  \resumeSubHeadingListStart
-    \resumeItem{\textbf{Languages:} C/$\CC$, Python, Go, Java, Bash}
-    \resumeItem{\textbf{Cloud \& Infrastructure:} AWS, GCP, %
-    Kubernetes, Terraform, Helm}
-    \resumeItem{\textbf{Tools \& Technologies:} Git, Linux, Docker, %
-    CI/CD (GitHub Actions, GitLab)}
-  \resumeSubHeadingListEnd
+%-----------SUMMARY + SKILLS (2-column row)-----------
+\vspace{6pt}
+\begin{minipage}[t]{0.48\textwidth}
+  \columnSectionHeader{Summary}
+  \small{Software engineer with experience in backend development, %
+  cloud infrastructure, and Kubernetes-based systems. Worked on %
+  large-scale email security services handling 10M+ daily requests %
+  using C++, Go, Python, AWS, and Terraform.}
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.48\textwidth}
+  \columnSectionHeader{Skills}
+  \begin{itemize}[leftmargin=*,noitemsep,topsep=0pt,parsep=0pt]
+    \item\small\textbf{Languages:} C/$\CC$, Python, Go, Java, Bash
+    \item\small\textbf{Cloud \& Infra:} AWS, GCP, Kubernetes, Terraform, %
+    Helm, Docker, GitHub Actions, GitLab CI
+    \item\small\textbf{Observability:} OpenTelemetry, Prometheus, %
+    Grafana, Langfuse
+  \end{itemize}
+\end{minipage}
+\vspace{0pt}
 
 
 %-----------EXPERIENCE-----------------
@@ -144,105 +160,76 @@
 
     \resumeSubheading
       {Trend Micro}{Taipei, Taiwan}
-      {Cloud Engineer}{Jun. 2025 -- Now}
+      {Cloud Engineer}{Jun. 2025 -- Present}
       \resumeItemListStart
         \resumeItem{}{Owned Trend Micro Anti-Spam Engine (TMASE), a $\CC$ %
         email threat detection engine used across multiple email security %
-        products; delivered new detection features, managed monthly %
-        releases, and built GitHub Actions CI/CD pipelines that automated %
-        build, unit test, and regression test workflows.}
+        products; delivered new detection features, managed monthly releases, %
+        and built GitHub Actions CI/CD pipelines that automated build, unit %
+        test, and regression test workflows.}
         \resumeItem{}{Migrated AWS infrastructure from CloudFormation to %
-        Terraform and provisioned new Amazon EKS clusters with Helm; %
-        executed production traffic migration for services handling 10M+ %
-        daily email queries and optimized Kubernetes resource allocation %
-        and Karpenter autoscaling to improve cost efficiency.}
+        Terraform and provisioned new Amazon EKS clusters with Helm; executed %
+        production traffic migration for services handling 10M+ daily email %
+        queries and optimized Kubernetes resource allocation and Karpenter %
+        autoscaling to improve cost efficiency.}
         \resumeItem{}{Implemented backend features for Erato, a %
-        Python/LangGraph LLM-based email threat analysis service, %
-        including tenant-aware tracing integrated with existing %
-        OpenTelemetry and Langfuse infrastructure, and built a Go service %
-        exposing TMASE scanning capabilities to the LLM evaluation %
-        pipeline.}
+        Python/LangGraph LLM-based email threat analysis service using Azure %
+        OpenAI GPT, including tenant-aware tracing integrated with existing %
+        OpenTelemetry and Langfuse infrastructure.}
+        \resumeItem{}{Built a Go web service exposing TMASE scanning %
+        capabilities to Erato, enabling rule-based detection results to be %
+        incorporated into the LLM evaluation pipeline.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Thingnario}{Taipei, Taiwan}
       {Site Reliability Engineering Intern}{Jun. 2023 -- Aug. 2023}
       \resumeItemListStart
-        \resumeItem{}{Integrated testing scripts across diverse %
-        GCP servers using the centralized scheduler/runner Cronicle, %
-        consolidating error messages into an Elasticsearch-powered %
-        database for streamlined log analysis and more effective %
-        troubleshooting.}
+        \resumeItem{}{Built centralized testing and log collection workflows %
+        across GCP servers using Cronicle and Elasticsearch, improving failure %
+        diagnosis and operational troubleshooting.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Research Institutes of Sweden (RISE)}{Stockholm, Sweden}
-      {Research Intern, supervised by Dr. Paris Carbone}%
-      {Apr. 2023 -- Jul. 2023}
+      {Research Intern, supervised by Dr. Paris Carbone}{Apr. 2023 -- Jul. 2023}
       \resumeItemListStart
-        \resumeItem{}{Dockerized and refactored the Java-based %
-        throughput assessment of machine learning models across %
-        various stream-processing frameworks (e.g., Apache Flink, %
-        Kafka Streams, and Spark Streaming) to simulate real-world %
-        performance in an industrial setting, leading to its %
-        acceptance at EDBT/ICDT 2024.}
+        \resumeItem{}{Dockerized and refactored Java benchmarking workloads %
+        for Apache Flink, Kafka Streams, and Spark Streaming to evaluate ML %
+        throughput in industrial stream-processing environments; work was later %
+        accepted at EDBT/ICDT 2024.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Mobagel}{Taipei, Taiwan}
       {Software Engineer Intern}{Jun. 2022 -- Aug. 2022}
       \resumeItemListStart
-        \resumeItem{}{Developed error codes for Decanter AI's AutoML %
-        Scala-based system, optimizing data processing, model training, %
-        and prediction request handling, which improved error message %
-        feedback on the web frontend.}
-        \resumeItem{}{Optimized the "sanitizing" module responsible for %
-        managing special characters in file headers during user dataset %
-        uploads, enhancing data quality and user experience.}
-      \resumeItemListEnd
-
-
-  \resumeSubHeadingListEnd
-
-
-\section{Additional Experience}
-  \resumeSubHeadingListStart
-
-    \resumeSubheading
-      {Sensay}{United States (Remote)}
-      {Machine Learning Intern}{Jul. 2021 -- Aug. 2021}
-      \resumeItemListStart
-        \resumeItem{}{Developed automated speech assessment and %
-        audio visualization systems for English learning platform.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Innoveon}{Taipei, Taiwan}
-      {Deep Learning Intern}{Jul. 2020 -- Sept. 2020}
-      \resumeItemListStart
-        \resumeItem{}{Implemented CNN-based image alignment algorithm %
-        for defect detection in manufacturing.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Institute of Information Science, Academia Sinica}{Taipei, Taiwan}
-      {High School Research Project, supervised by Dr. Li Su}%
-      {Aug. 2018 -- Jul. 2020}
-      \resumeItemListStart
-        \resumeItem{}{Published first-authored paper in ICASSP 2020 %
-        on neural network-based violin performance generation. %
-        [\href{https://ieeexplore.ieee.org/document/9054463}{IEEExplore}]}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {2022 \& 2023 APCS Camp}{Taipei, Taiwan}
-      {$\CC$ Lecturer}{Mar. 2022 -- Jul. 2023}
-      \resumeItemListStart
-        \resumeItem{}{Delivered online lectures on $\CC$ fundamentals %
-        to 80 high school students.}
+        \resumeItem{}{Developed error handling mechanisms for Decanter AI's %
+        Scala-based AutoML platform, improving visibility into failures during %
+        data processing, model training, and prediction workflows.}
+        \resumeItem{}{Enhanced dataset sanitization components for uploaded %
+        data files, improving robustness and user experience.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
+
+
+%-----------EARLIER EXPERIENCE-----------------
+\section{Earlier Experience}
+  \begin{itemize}[leftmargin=*, noitemsep, topsep=2pt, parsep=0pt]
+    \item\small{Machine Learning Intern @ Sensay (Jul. 2021 -- Aug. 2021): %
+    Developed automated speech assessment and audio visualization components %
+    for an English learning platform.}
+    \item\small{Deep Learning Intern @ Innoveon (Jul. 2020 -- Sept. 2020): %
+    Implemented CNN-based image alignment algorithms for manufacturing defect %
+    detection.}
+    \item\small{Research Project @ Academia Sinica, supervised by Dr.\ Li Su %
+    (Aug. 2018 -- Jul. 2020): First-authored an ICASSP 2020 paper on %
+    neural network-based violin performance generation. %
+    [\href{https://ieeexplore.ieee.org/document/9054463}{IEEExplore}]}
+    \item\small{$\CC$ Lecturer @ 2022 \& 2023 APCS Camp (Mar. 2022 -- %
+    Jul. 2023): Delivered online $\CC$ lectures to 80 high school students.}
+  \end{itemize}
 
 %-------------------------------------------
 \end{document}
